@@ -1,0 +1,18 @@
+<h2>Banners</h2>
+<table id="formatotabla" class="display">
+  <thead>
+    <tr>
+      <th>&nbsp;</th>
+      <th>id</th>
+      <th>titulo</th>
+      <th>posición</th>
+      <th>estado</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+  <?php if (count($this->banners)): ?>
+    <?php echo $this->partialLoop('admin/partials/listar-row-banner.phtml', $this->banners) ?>
+  <?php endif; ?>
+  </tbody>
+</table>

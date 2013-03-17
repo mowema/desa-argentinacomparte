@@ -1,0 +1,21 @@
+<h1 class="outOfView">Argentina Comparte - Noticia: <?php echo $this->news['title'] ?> </h1>
+<?php $this->placeholder('news')->captureStart(); ?>
+    <?php
+        $file = '/img/notfound.jpg';
+        if (count($this->news['Images'])) {
+            $file = file_exists(PUBLIC_PATH . '/uploads/images/' . $this->news['Images'][0]['name'])
+                ? '/uploads/images/' . $this->news['Images'][0]['name']
+                : '/uploads/tmp/' . $this->news['id'] . '/' . $this->news['Images'][0]['name']
+            ;
+        }
+        echo $this->multimediaBox(
+            array(
+                'file' => $file,
+                'type' => 'image',
+                'title' => $this->news['title'],
+                'copy' => $this->news['body'],
+                'date' => $this->news['creation_date'],
+            )
+        );
+    ?>
+<?php $this->placeholder('news')->captureEnd(); ?>

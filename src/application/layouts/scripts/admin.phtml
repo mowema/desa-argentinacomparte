@@ -1,0 +1,39 @@
+<?php echo $this->doctype() . PHP_EOL ?>
+<html>
+<head>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<?php echo $this->headMeta() . PHP_EOL ?>
+<?php echo $this->headTitle() . PHP_EOL ?>
+<?php echo $this->openGraph() ?>
+<?php echo $this->headStyle() . PHP_EOL ?>
+<?php echo $this->headLink() . PHP_EOL ?>
+<?php echo $this->headScript() . PHP_EOL ?>
+<link href="/img/favicon.ico" rel="shortcut icon" >
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<?php echo $this->googleMapApiKey;?>&sensor=false"></script>
+<script type="text/javascript" language="javascript" src="/js/lib/bootstrap/bootstrap-alert.js"></script>
+<script type="text/javascript" language="javascript" src="/js/lib/bootstrap/bootstrap-button.js"></script>
+</head>
+
+<body>
+<?php echo $this->partial('partials/adminToolbar.phtml'); ?>
+<div id="content" class="container admin">
+<?php echo $this->partial('partials/errorMessages.phtml', array('title' => '', 'type' => '')); ?>
+<?php echo $this->layout()->content; ?>
+</div>
+<?php echo $this->footerScript() . PHP_EOL; ?>
+<?php echo $this->minifyFooterScript();?>
+<?php echo $this->inlineScript(); ?>
+<?php echo $this->lateScript(); ?>
+<script type="text/javascript">
+function limitText(limitField, limitCount, limitNum) {
+    if (limitField.value.length > limitNum) {
+        limitField.value = limitField.value.substring(0, limitNum);
+    } else {
+        limitCount.value = limitNum - limitField.value.length;
+    }
+}
+</script>
+<link href="/js/fancybox/jquery.fancybox.css?v=2.1.0" rel="stylesheet" />
+<script type="text/javascript" src="/js/fancybox/jquery.fancybox.pack.js?v=2.1.0"></script>
+</body>
+</html>

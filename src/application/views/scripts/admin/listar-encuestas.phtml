@@ -1,0 +1,19 @@
+<h2>Encuestas</h2>
+<div id="chartHolder"></div>
+<table id="formatotabla" class="display">
+  <thead>
+    <tr>
+      <th>&nbsp;</th>
+      <th>id</th>
+      <th>titulo</th>
+      <th>fecha</th>
+      <th>Categoría</th>
+      <th>estado</th>
+    </tr>
+  </thead>
+  <tbody>
+  <?php if (count($this->encuestas)):?>
+    <?php echo $this->partialLoop('admin/partials/listar-row-encuesta.phtml', $this->encuestas) ?>
+  <?php endif; ?>
+  </tbody>
+</table>
